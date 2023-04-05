@@ -1,7 +1,7 @@
 import React from "react";
 import "./Cart.css";
 
-const Cart = ({ cart, removeAll }) => {
+const Cart = ({ cart, removeAll, children }) => {
   let total = 0;
   let totalShipping = 0;
   let quantity = 0;
@@ -30,6 +30,7 @@ const Cart = ({ cart, removeAll }) => {
       <button onClick={removeAll} className="deleteAll">
         Remove all
       </button>
+      {children}
     </div>
   );
 };

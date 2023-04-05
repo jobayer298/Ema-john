@@ -11,3 +11,9 @@
     margin: 50px;
     
 }
+.order-btn{
+    color: white;
+    background: orchid;
+    padding: 10px 12px;
+    margin-top: 5px;
+}

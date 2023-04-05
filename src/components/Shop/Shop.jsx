@@ -3,6 +3,7 @@ import { addToDb, deleteShoppingCart, getShoppingCart } from "../../utilities/fa
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -61,7 +62,13 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart-container">
-        <Cart removeAll={removeAll} cart={cart}></Cart>
+        <Cart removeAll={removeAll} cart={cart}>
+          <div>
+            <Link to="/order">
+              <button className="order-btn">Order Review</button>
+            </Link>
+          </div>
+        </Cart>
       </div>
     </div>
   );

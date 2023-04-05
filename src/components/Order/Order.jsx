@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Cart from '../Cart/Cart';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Review from '../ReviewItem/Review';
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
+import './Order.css'
 
 
 const Order = () => {
@@ -31,7 +32,13 @@ const Order = () => {
             ))}
           </div>
           <div className="cart-container">
-            <Cart removeAll={removeAll} cart={cart}></Cart>
+            <Cart removeAll={removeAll} cart={cart}>
+              <div>
+                <Link to="/checkout">
+                  <button className='check-btn'>Checkout</button>
+                </Link>
+              </div>
+            </Cart>
           </div>
         </div>
       </div>
