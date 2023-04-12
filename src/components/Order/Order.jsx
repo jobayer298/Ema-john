@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import Cart from '../Cart/Cart';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigation } from 'react-router-dom';
 import Review from '../ReviewItem/Review';
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 import './Order.css'
+import Spinner from '../Spinner/Spinner';
 
 
 const Order = () => {
+   const navigate = useNavigation();
+   if (navigate.state === "loading") {
+     return <Spinner></Spinner>
+   }
    const product = useLoaderData()
    const [cart, setCart] = useState(product);
    const handleRemoveCart = (id) =>{

@@ -3,11 +3,16 @@ import { addToDb, deleteShoppingCart, getShoppingCart } from "../../utilities/fa
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const navigate = useNavigation()
+  if(navigate.state === 'loading'){
+    return <Spinner></Spinner>
+  }
   useEffect(() => {
     fetch("products.json")
       .then((res) => res.json())
